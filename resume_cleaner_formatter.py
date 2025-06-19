@@ -1,69 +1,36 @@
 from docx import Document
-from docx.shared import Pt
 
-def create_clean_resume():
+def create_clean_resume(input_path):
+    # Create a new Word document
     doc = Document()
 
+    # Add CTI-styled heading
     doc.add_heading("Ron Burgos", level=0)
-    doc.add_paragraph("Construction Project Manager")
-    doc.add_paragraph("Wichita, KS • (620) 200-7642 • burgosron09@yahoo.com • linkedin.com/in/ronburgos")
+    doc.add_paragraph("Construction Project Manager | 25+ Years Experience")
 
-    doc.add_heading("Professional Summary", level=1)
+    # Add some placeholder formatting (replace with real parsing later)
+    doc.add_heading("Summary", level=1)
     doc.add_paragraph(
-        "Performance-driven Construction Project Manager with over 25 years of experience managing large-scale projects "
-        "in HVAC-R, plumbing, electrical, roofing, and infrastructure remodeling. Demonstrated success in completing complex projects "
-        "on time and under budget while ensuring safety, quality control, and regulatory compliance. Skilled in subcontractor management, "
-        "risk mitigation, and energy efficiency systems across institutional, industrial, and government facilities."
+        "Seasoned construction leader with deep expertise in HVAC-R, plumbing, electrical systems, "
+        "roofing, and facilities management. Proven success managing multimillion-dollar projects "
+        "in healthcare, corrections, education, and industrial sectors."
     )
 
     doc.add_heading("Core Competencies", level=1)
     doc.add_paragraph(
-        "Construction Project Management • MEP Systems • OSHA & Code Compliance • Energy Retrofits • Budgeting & Estimating • "
-        "Risk Mitigation • Field Supervision • Scheduling • Quality Assurance • Vendor Negotiation"
+        "- Project Management\n"
+        "- MEP Coordination\n"
+        "- Budgeting & Estimation\n"
+        "- OSHA & Code Compliance\n"
+        "- Vendor Relations\n"
+        "- Team Supervision"
     )
 
-    doc.add_heading("Professional Experience", level=1)
+    doc.add_heading("Experience", level=1)
+    doc.add_paragraph("Senior Site Manager – ICONERGY (Denver, CO) – 2019–2024")
+    doc.add_paragraph("• Led multimillion-dollar energy retrofitting and infrastructure upgrades across U.S. facilities.")
+    doc.add_paragraph("• Supervised large teams and ensured compliance with federal, state, and city codes.")
 
-    experience_data = [
-        ("Construction Site Manager", "Dowson Global", "Sacramento, CA", "Jul 2024 – Present", [
-            "Lead MEP-heavy construction projects from design through execution across multiple sites.",
-            "Coordinate cross-functional teams, conduct risk assessments, and oversee code compliance.",
-            "Drive project delivery on tight timelines and budgets, while managing stakeholder expectations."
-        ]),
-        ("Senior Construction Site Manager", "Iconergy", "Denver, CO", "Feb 2019 – Jul 2024", [
-            "Directed energy conservation upgrades for schools, prisons, and hospitals nationwide.",
-            "Managed retrofits totaling $30M+, including HVAC, LED lighting, and water systems.",
-            "Led 16+ subcontractors and ensured regulatory and safety compliance."
-        ]),
-        ("Estimator / HVAC Coordinator", "Johnson Controls", "Wichita, KS", "Feb 2018 – Aug 2018", [
-            "Estimated and coordinated HVAC installations, boiler and rooftop unit projects.",
-            "Managed client communications, procurement, and preventive maintenance contracts."
-        ])
-    ]
-
-    for title, company, location, dates, bullets in experience_data:
-        job_header = doc.add_paragraph()
-        job_header.add_run(f"{title} – {company}").bold = True
-        job_header.add_run(f" ({location})")
-        doc.add_paragraph(f"{dates}")
-        for b in bullets:
-            doc.add_paragraph(f"• {b}", style='List Bullet')
-
-    doc.add_heading("Education", level=1)
-    doc.add_paragraph("Mechanical Technology Certificate – Salina Technical College, Salina, KS")
-    doc.add_paragraph("Small Business Mgmt. – Cloud County Community College, Abilene, KS")
-    doc.add_paragraph("Class “A” General Contractors License")
-    doc.add_paragraph("Master Contractors Mechanical License")
-    doc.add_paragraph("Journeyman Plumbers License")
-    doc.add_paragraph("Industrial Electrical & HVAC Certified – NCCER")
-    doc.add_paragraph("OSHA 10 & 30 Certificate")
-    doc.add_paragraph("Pursuing Project Management Certification – University of Phoenix")
-
-    doc.add_heading("Technical Skills", level=1)
-    doc.add_paragraph("AutoCAD • Procore • Bluebeam Revu • Microsoft Project • Excel • PlanGrid • Smartsheet")
-
-    doc.add_heading("Affiliations", level=1)
-    doc.add_paragraph("Member – Associated General Contractors (AGC)")
-    doc.add_paragraph("Member – Project Management Institute (PMI)")
+    # Add more sections here...
 
     return doc
